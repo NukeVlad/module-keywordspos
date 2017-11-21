@@ -10,14 +10,25 @@ if (!defined('NV_IS_FILE_MODULES')) die('Stop!!!');
 
 $sql_drop_module = array();
 $sql_drop_module[] = "DROP TABLE IF EXISTS " . $db_config['prefix'] . "_" . $lang . "_" . $module_data;
+$sql_drop_module[] = "DROP TABLE IF EXISTS " . $db_config['prefix'] . "_" . $lang . "_" . $module_data . "_keywords";
 
 $sql_create_module = $sql_drop_module;
-
 $sql_create_module[] = "CREATE TABLE " . $db_config['prefix'] . "_" . $lang . "_" . $module_data . "(
   id smallint(4) unsigned NOT NULL AUTO_INCREMENT,
   title varchar(255) NOT NULL COMMENT 'Tên gọi',
   note tinytext NOT NULL COMMENT 'Ghi chú',
   status tinyint(1) NOT NULL COMMENT 'Trạng thái',
+  PRIMARY KEY (id)
+) ENGINE=MyISAM";
+
+$sql_create_module[] = "CREATE TABLE " . $db_config['prefix'] . "_" . $lang . "_" . $module_data . "_keywords(
+  id mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
+  projectid smallint(4) unsigned NOT NULL,
+  title varchar(255) NOT NULL COMMENT 'Từ khóa',
+  url varchar(255) NOT NULL COMMENT 'Liên kết',
+  note tinytext NOT NULL COMMENT 'Ghi chú',
+  weight smallint(4) unsigned NOT NULL DEFAULT '0',
+  status tinyint(1) NOT NULL DEFAULT '1' COMMENT 'Trạng thái',
   PRIMARY KEY (id)
 ) ENGINE=MyISAM";
 

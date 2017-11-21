@@ -14,5 +14,6 @@ require_once NV_ROOTDIR . '/modules/' . $module_file . '/global.functions.php';
 
 $allow_func = array(
     'main',
+    'keywords',
     'config'
 );
