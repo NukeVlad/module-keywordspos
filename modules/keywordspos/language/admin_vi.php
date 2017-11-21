@@ -16,5 +16,21 @@ $lang_translator['info'] = '';
 $lang_translator['langtype'] = 'lang_module';
 
 $lang_module['main'] = 'Trang chính';
+$lang_module['save'] = 'Lưu lại';
 $lang_module['config'] = 'Cấu hình';
-$lang_module['save'] = 'Save';
+$lang_module['note'] = 'Ghi chú';
+$lang_module['add'] = 'Thêm mới';
+$lang_module['edit'] = 'Sửa';
+$lang_module['delete'] = 'Xóa';
+$lang_module['number'] = 'STT';
+$lang_module['active'] = 'Họat động';
+$lang_module['title'] = 'Tiêu đề';
+$lang_module['alias'] = 'Liên kết tĩnh';
+$lang_module['search_title'] = 'Nhập từ khóa tìm kiếm';
+$lang_module['search_submit'] = 'Tìm kiếm';
+$lang_module['projects'] = 'Dự án';
+$lang_module['perform'] = 'Thực hiện';
+$lang_module['project_edit'] = 'Sửa dự án';
+$lang_module['project_add'] = 'Thêm dự án';
+
+$lang_module['error_empty_data'] = 'Bạn cần chọn dữ liệu để thực hiện!';
