@@ -39,6 +39,9 @@ $lang_module['keywords_add'] = 'Thêm từ khóa';
 $lang_module['keywords_edit'] = 'Sửa từ khóa';
 $lang_module['url'] = 'Liên kết';
 $lang_module['view'] = 'Báo cáo';
+$lang_module['refresh'] = 'Cập nhật';
+$lang_module['refresh_ok'] = 'Cập nhật thành công!';
+$lang_module['refresh_confirm'] = 'Bạn có chắc chắn muốn cập nhật thông tin cho từ khóa này?';
 
 $lang_module['error_required_title'] = 'Lỗi: bạn cần nhập Từ khóa';
 $lang_module['error_required_url'] = 'Lỗi: bạn cần nhập Liên kết';

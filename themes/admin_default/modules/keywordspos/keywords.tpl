@@ -28,11 +28,11 @@
                 <col />
                 <col />
                 <col class="w100" />
-                <col class="w150" />
+                <col class="w200" />
             </colgroup>
             <thead>
                 <tr>
-                <th class="text-center w50"><input name="check_all[]" type="checkbox" value="yes" onclick="nv_checkAll(this.form, 'idcheck[]', 'check_all[]',this.checked);"></th>
+                    <th class="text-center w50"><input name="check_all[]" type="checkbox" value="yes" onclick="nv_checkAll(this.form, 'idcheck[]', 'check_all[]',this.checked);"></th>
                     <th>{LANG.weight}</th>
                     <th>{LANG.title}</th>
                     <th>{LANG.url}</th>
@@ -51,7 +51,7 @@
             <tbody>
                 <!-- BEGIN: loop -->
                 <tr>
-                <td class="text-center"><input type="checkbox" onclick="nv_UncheckAll(this.form, 'idcheck[]', 'check_all[]', this.checked);" value="{VIEW.id}" name="idcheck[]" class="post"></td>
+                    <td class="text-center"><input type="checkbox" onclick="nv_UncheckAll(this.form, 'idcheck[]', 'check_all[]', this.checked);" value="{VIEW.id}" name="idcheck[]" class="post"></td>
                     <td><select class="form-control" id="id_weight_{VIEW.id}" onchange="nv_change_weight('{VIEW.id}');">
                             <!-- BEGIN: weight_loop -->
                             <option value="{WEIGHT.key}"{WEIGHT.selected}>{WEIGHT.title}</option>
@@ -61,7 +61,7 @@
                     <td>{VIEW.url}</td>
                     <td>{VIEW.note}</td>
                     <td class="text-center"><input type="checkbox" name="status" id="change_status_{VIEW.id}" value="{VIEW.id}" {CHECK} onclick="nv_change_status({VIEW.id});" /></td>
-                    <td class="text-center"><i class="fa fa-edit fa-lg">&nbsp;</i><a href="{VIEW.link_edit}#edit">{LANG.edit}</a> - <em class="fa fa-trash-o fa-lg">&nbsp;</em><a href="{VIEW.link_delete}" onclick="return confirm(nv_is_del_confirm[0]);">{LANG.delete}</a></td>
+                    <td class="text-center"><i class="fa fa-refresh fa-lg">&nbsp;</i><a href="#" onclick="nv_refresh(); return !1;">{LANG.refresh}</a> - <i class="fa fa-edit fa-lg">&nbsp;</i><a href="{VIEW.link_edit}">{LANG.edit}</a> - <em class="fa fa-trash-o fa-lg">&nbsp;</em><a href="{VIEW.link_delete}" onclick="return confirm(nv_is_del_confirm[0]);">{LANG.delete}</a></td>
                 </tr>
                 <!-- END: loop -->
             </tbody>
@@ -86,8 +86,7 @@
 <div class="panel panel-default">
     <div class="panel-body">
         <form class="form-horizontal" action="{NV_BASE_ADMINURL}index.php?{NV_LANG_VARIABLE}={NV_LANG_DATA}&amp;{NV_NAME_VARIABLE}={MODULE_NAME}&amp;{NV_OP_VARIABLE}={OP}" method="post">
-            <input type="hidden" name="id" value="{ROW.id}" />
-            <input type="hidden" name="projectid" value="{ROW.projectid}" />
+            <input type="hidden" name="id" value="{ROW.id}" /> <input type="hidden" name="projectid" value="{ROW.projectid}" />
             <div class="form-group">
                 <label class="col-sm-3 control-label"><strong>{LANG.title}</strong> <span class="red">*</span></label>
                 <div class="col-sm-21">
@@ -146,7 +145,22 @@
 		}
 		return;
 	}
-
+	
+	function nv_refresh(id)
+	{
+	    if(confirm('{LANG.refresh_confirm}')){
+	        $('body').append('<div class="ajax-load-qa"></div>');
+	        $.ajax({
+		    	type : 'POST',
+		    	url : script_name + '?' + nv_name_variable + '=' + nv_module_name + '&' + nv_fc_variable + '=keywords&nocache=' + new Date().getTime(),
+		    	data : 'refresh=1&id=' + id,
+		    	success : function(res) {
+		    	    $('.ajax-load-qa').remove();
+		    	    alert(res);
+		    	}
+		    });	  	        
+	    }
+	}
 	//]]>
 </script>
 <!-- END: main -->

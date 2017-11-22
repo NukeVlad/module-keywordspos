@@ -33,3 +33,19 @@ function nv_list_action(action, url_action, del_confirm_no_post) {
     }
     return false;
 }
+
+$(document).ready(function() {
+    $('.loading').click(function() {
+        if($.validator){
+            var valid = $(this).closest('form').valid();
+            if(valid){
+                $('body').append('<div class="ajax-load-qa"></div>');
+            }
+        }else{
+            var valid = $(this).closest('form').find('input:invalid').length;
+            if(valid == 0){
+                $('body').append('<div class="ajax-load-qa"></div>');
+            }
+        }
+    });
+});

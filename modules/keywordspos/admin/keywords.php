@@ -9,6 +9,12 @@
  */
 if (!defined('NV_IS_FILE_ADMIN')) die('Stop!!!');
 
+if ($nv_Request->isset_request('refresh', 'post, get')) {
+    $id = $nv_Request->get_int('id', 'post, get', 0);
+    nv_check($id);
+    die($lang_module['refresh_ok']);
+}
+
 // change status
 if ($nv_Request->isset_request('change_status', 'post, get')) {
     $id = $nv_Request->get_int('id', 'post, get', 0);
@@ -83,11 +89,11 @@ if ($nv_Request->isset_request('delete_id', 'get') and $nv_Request->isset_reques
         Header('Location: ' . NV_BASE_ADMINURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&' . NV_NAME_VARIABLE . '=' . $module_name . '&' . NV_OP_VARIABLE . '=' . $op);
         die();
     }
-}elseif ($nv_Request->isset_request('delete_list', 'post')) {
+} elseif ($nv_Request->isset_request('delete_list', 'post')) {
     $listall = $nv_Request->get_title('listall', 'post', '');
     $array_id = explode(',', $listall);
 
-    if (! empty($array_id)) {
+    if (!empty($array_id)) {
         foreach ($array_id as $id) {
             nv_delete_class($id);
         }
