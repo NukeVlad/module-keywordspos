@@ -120,10 +120,10 @@ if ($nv_Request->isset_request('submit', 'post')) {
                 $weight = $db->query('SELECT max(weight) FROM ' . NV_PREFIXLANG . '_' . $module_data . '_keywords')->fetchColumn();
                 $weight = intval($weight) + 1;
                 $stmt->bindParam(':weight', $weight, PDO::PARAM_INT);
+                $stmt->bindParam(':projectid', $row['projectid'], PDO::PARAM_INT);
             } else {
                 $stmt = $db->prepare('UPDATE ' . NV_PREFIXLANG . '_' . $module_data . '_keywords SET title = :title, url = :url, note = :note WHERE id=' . $row['id']);
             }
-            $stmt->bindParam(':projectid', $row['projectid'], PDO::PARAM_INT);
             $stmt->bindParam(':title', $row['title'], PDO::PARAM_STR);
             $stmt->bindParam(':url', $row['url'], PDO::PARAM_STR);
             $stmt->bindParam(':note', $row['note'], PDO::PARAM_STR, strlen($row['note']));
@@ -156,7 +156,7 @@ $q = $nv_Request->get_title('q', 'post,get');
 if (empty($row['projectid'])) {
     nv_redirect_location(NV_BASE_ADMINURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&' . NV_NAME_VARIABLE . '=' . $module_name);
 }
-$rows = $db->query('SELECT * FROM ' . NV_PREFIXLANG . '_' . $module_data . ' WHERE status=1')->fetch();
+$rows = $db->query('SELECT title FROM ' . NV_PREFIXLANG . '_' . $module_data . ' WHERE id=' . $row['projectid'])->fetch();
 
 // Fetch Limit
 $show_view = false;

@@ -26,7 +26,7 @@
                 <col />
                 <col />
                 <col class="w100" />
-                <col class="w150" />
+                <col class="w200" />
             </colgroup>
             <thead>
                 <tr>
@@ -51,7 +51,11 @@
                     <td><a href="{VIEW.link_keywords}">{VIEW.title}</a></td>
                     <td>{VIEW.note}</td>
                     <td class="text-center"><input type="checkbox" name="status" id="change_status_{VIEW.id}" value="{VIEW.id}" {CHECK} onclick="nv_change_status({VIEW.id});" /></td>
-                    <td class="text-center"><i class="fa fa-edit fa-lg">&nbsp;</i><a href="{VIEW.link_edit}">{LANG.edit}</a> - <em class="fa fa-trash-o fa-lg">&nbsp;</em><a href="{VIEW.link_delete}" onclick="return confirm(nv_is_del_confirm[0]);">{LANG.delete}</a></td>
+                    <td class="text-center">
+                        <i class="fa fa-bar-chart fa-lg">&nbsp;</i><a href="{VIEW.link_view}">{LANG.view}</a> - 
+                        <i class="fa fa-edit fa-lg">&nbsp;</i><a href="{VIEW.link_edit}">{LANG.edit}</a> - 
+                        <em class="fa fa-trash-o fa-lg">&nbsp;</em><a href="{VIEW.link_delete}" onclick="return confirm(nv_is_del_confirm[0]);">{LANG.delete}</a>
+                    </td>
                 </tr>
                 <!-- END: loop -->
             </tbody>

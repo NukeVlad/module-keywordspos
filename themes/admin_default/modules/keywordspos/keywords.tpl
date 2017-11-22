@@ -97,7 +97,7 @@
             <div class="form-group">
                 <label class="col-sm-3 control-label"><strong>{LANG.url}</strong> <span class="red">*</span></label>
                 <div class="col-sm-21">
-                    <input class="form-control" type="url" name="url" value="{ROW.title}" required="required" oninvalid="setCustomValidity( nv_required )" oninput="setCustomValidity('')" />
+                    <input class="form-control" type="url" name="url" value="{ROW.url}" required="required" oninvalid="setCustomValidity( nv_required )" oninput="setCustomValidity('')" />
                 </div>
             </div>
             <div class="form-group">

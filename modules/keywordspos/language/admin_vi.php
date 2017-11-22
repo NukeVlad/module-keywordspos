@@ -29,6 +29,7 @@ $lang_module['alias'] = 'Liên kết tĩnh';
 $lang_module['search_title'] = 'Nhập từ khóa tìm kiếm';
 $lang_module['search_submit'] = 'Tìm kiếm';
 $lang_module['projects'] = 'Dự án';
+$lang_module['projects_of'] = 'Dự án "%s"';
 $lang_module['perform'] = 'Thực hiện';
 $lang_module['project_edit'] = 'Sửa dự án';
 $lang_module['project_add'] = 'Thêm dự án';
@@ -37,6 +38,7 @@ $lang_module['keywords_of'] = 'Từ khóa thuộc dự án "%s"';
 $lang_module['keywords_add'] = 'Thêm từ khóa';
 $lang_module['keywords_edit'] = 'Sửa từ khóa';
 $lang_module['url'] = 'Liên kết';
+$lang_module['view'] = 'Báo cáo';
 
 $lang_module['error_required_title'] = 'Lỗi: bạn cần nhập Từ khóa';
 $lang_module['error_required_url'] = 'Lỗi: bạn cần nhập Liên kết';
