@@ -11,9 +11,9 @@ if (!defined('NV_MAINFILE')) die('Stop!!!');
 
 $module_version = array(
     'name' => 'Keywordspos',
-    'modfuncs' => 'main,detail,cronjobs',
-    'change_alias' => 'main,detail',
-    'submenu' => 'main,detail',
+    'modfuncs' => 'main,cronjobs',
+    'change_alias' => 'main',
+    'submenu' => 'main',
     'is_sysmod' => 0,
     'virtual' => 1,
     'version' => '1.0.00',

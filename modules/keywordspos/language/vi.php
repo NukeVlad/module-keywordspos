@@ -16,4 +16,5 @@ $lang_translator['info'] = '';
 $lang_translator['langtype'] = 'lang_module';
 
 $lang_module['main'] = 'Trang chính';
-$lang_module['detail'] = 'Xem chi tiết';
+$lang_module['projects'] = 'Dự án';
+$lang_module['projects_select'] = 'Chọn dự án';

@@ -19,7 +19,7 @@
                 titleMarginBottom : 2,
                 callbacks : {
                     title : function(a, b) {
-                        return 'Vị thứ ' + number_format(b.datasets[0].data[a[0].index], 0, ',', '.')
+                        return 'Vị thứ ' + b.datasets[0].data[a[0].index]
                     },
                     label : function(a, b) {
                         return null;
